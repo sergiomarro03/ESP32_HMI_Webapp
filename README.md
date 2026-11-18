@@ -58,8 +58,6 @@ Extras: modo punto de acceso si no hay Wi-Fi, alarma de temperatura y de sensor 
 | Pin 2 – DATA | GPIO 4 (y 4.7 kΩ hacia 3V3) |
 | Pin 3 – VDD | 3V3 |
 
-> Agrega aquí una foto de **tu** protoboard (`conexiones.jpg`) en la carpeta de entrega.
-
 ## 4. Instalación y ejecución
 
 1. **Arduino IDE**: instala la placa *esp32 by Espressif Systems* (Gestor de placas) y las librerías **OneWire** y **DallasTemperature** (Gestor de librerías).
