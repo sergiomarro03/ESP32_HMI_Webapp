@@ -120,7 +120,7 @@ chartjs_gz.h           Chart.js incrustado como arreglo de bytes
 README.md              este documento
 log.csv                log real descargado desde la página (evidencia)
 capturas/              capturas de pantalla
-video.mp4              video demostrativo
+(video)                en Google Drive, enlace en la sección 10
 ```
 
 `chartjs_gz.h` se generó comprimiendo `chart.umd.min.js` (paquete npm `chart.js`) con `gzip -9` y convirtiéndolo a arreglo C con `xxd -i`. Así la página no depende de internet para dibujar el gráfico.
@@ -130,6 +130,27 @@ video.mp4              video demostrativo
 - [Chart.js](https://www.chartjs.org) 4.6.1 – licencia MIT.
 - Librerías de Arduino: OneWire, DallasTemperature, y las incluidas en el núcleo del ESP32 (WiFi, WebServer, ESPmDNS, LittleFS).
 
-## 9. Conclusiones
+## 9. Capturas de pantalla
 
-> *(Escribe aquí tus propias conclusiones: qué aprendiste, qué dificultades tuviste, qué mejorarías.)*
+Intervalo de muestreo en 5 s:
+
+![Intervalo de 5 s](capturas/captura_1_intervalo_5s.png)
+
+Intervalo de muestreo en 1 s:
+
+![Intervalo de 1 s](capturas/captura_2_intervalo_1s.png)
+
+Registro (log) con las últimas 10 entradas y el botón de descarga:
+
+![Registro](capturas/captura_3_log.png)
+
+## 10. Video demostrativo
+
+[Ver el video en Google Drive](https://drive.google.com/file/d/1z_GdyjNyNMskZQKHteECD0ArUIZIJUit/view?usp=sharing)
+
+## 11. Conclusiones
+
+- El intervalo de lectura se puede cambiar desde la página a 1, 2, 3, 4 o 5 segundos, y el cambio se ve reflejado en la gráfica: con 1 s los puntos quedan más juntos y con 5 s más separados.
+- Cuando la temperatura pasa del umbral de 30 °C, la HMI muestra una alerta en la tarjeta de temperatura y el evento queda guardado en el log.
+- El log descargable (`log.csv`) guarda como máximo las lecturas de las últimas 5 horas aproximadamente con el intervalo de 2 s (unas 2.7 horas con 1 s y unas 13 horas con 5 s). Al llegar a 256 KB el archivo pasa a ser el log anterior y se empieza uno nuevo.
+- Con los botones Encender y Apagar de la página, el LED interno del ESP32 se enciende y se apaga.
